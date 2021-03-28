@@ -113,7 +113,6 @@ export default function UserScheduleMeeting({ user }) {
 
     return (
         <div>
-            This is Schedule meeting page
             <div style={{ border: "dashed 2px darkblue" }}>
                 {!isLoading && <form onSubmit={onSubmit} id="schedule-meeting-form" style={{
                     margin: "10px", display: "block",
