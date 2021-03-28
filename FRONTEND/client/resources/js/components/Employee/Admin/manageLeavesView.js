@@ -13,6 +13,7 @@ import TextField from '@material-ui/core/TextField';
 import produce from "immer";
 import Spinner from "../../shared/A-UI/Spinner/spinner";
 import { Button, Typography } from '@material-ui/core';
+import sendEmail from "../../shared/A-UI/NodeMailer/mailer";
 
 const useStyles = makeStyles((theme) => ({
     table: {
@@ -145,16 +146,16 @@ export default function AdminManageLeavesView() {
             }
             await axios.post('/leaveApplications.json', leaveToUpdate)
                 .then(response => {
-                    // newCache.push({
-                    //     id: response.name,
-                    //     user: leaveToUpdate.user,
-                    //     numberOfDays: leaveToUpdate.numberOfDays,
-                    //     fromDate: leaveToUpdate.numberOfDays,
-                    //     approved: true,
-                    // })
                     setLeavesList(newCache);
                     setIsLoading(false);
                     toast.success(`Leave Approved Successfully`);
+                    // const mailOptions = {
+                    //     from: 'shabarish.shabbi@gmail.com',
+                    //     to: leave.user[0].email,
+                    //     subject: 'Leave Approved',
+                    //     text: 'Your Leave Application is Approved by the Admin.'
+                    // };
+                    // sendEmail(mailOptions);
                 })
                 .catch(err => {
                     setIsLoading(false);

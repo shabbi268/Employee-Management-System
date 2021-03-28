@@ -10,6 +10,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Typography } from '@material-ui/core';
+import Spinner from "../../shared/A-UI/Spinner/spinner";
 
 const useStyles = makeStyles((theme) => ({
     table: {
@@ -93,6 +94,7 @@ export default function UserViewLeaves({ user }) {
                 </TableContainer>
             </div>}
             {noData && <Typography variant="h4">No Leave Applications Found.</Typography>}
+            {isLoading && <Spinner loading={isLoading}></Spinner>}
         </div>
     )
 }
