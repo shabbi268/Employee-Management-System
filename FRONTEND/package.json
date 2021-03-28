@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Employee Management Application",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "build": "gulp && npm run webpack",
     "dev": "npm run build && nodemon --watch ./src/libs --watch ./src/routes --inspect=4667 ./index.js",
