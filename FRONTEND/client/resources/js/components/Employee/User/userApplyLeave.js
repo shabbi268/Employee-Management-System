@@ -56,7 +56,6 @@ export default function UserApplyLeave({ user }) {
     const onSubmit = async (e) => {
         setIsLoading(true);
         if (e) e.preventDefault();
-        console.log(`fromdate: `, leave.fromDate);
         if (new Date(leave.fromDate) <= new Date()) {
             toast.error("From Date cant be less than today's Date");
             setIsLoading(false);

@@ -41,7 +41,6 @@ export function AdminViewSchedules() {
         setIsLoading(true);
         axios.get('/schedules.json')
             .then((res) => {
-                console.log(`res: `, res);
                 if (!res.data) {
                     setNoData(true);
                     toast.error("No Schedules Found");
@@ -68,7 +67,6 @@ export function AdminViewSchedules() {
             })
     }, [])
 
-    console.log(`schedulesList: `, schedulesList);
 
     return (
         <div>

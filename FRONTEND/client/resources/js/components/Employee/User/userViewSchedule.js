@@ -33,7 +33,6 @@ const useStyles = makeStyles((theme) =>
 
 export default function UserViewSchedule({ user }) {
     const classes = useStyles();
-    console.log(`user: `, user);
     const [isLoading, setIsLoading] = useState(false);
     const [noData, setNoData] = useState(false)
     const [addSchedule, setAddSchedule] = useState(false);
@@ -62,7 +61,6 @@ export default function UserViewSchedule({ user }) {
         setIsLoading(true);
         axios.get('/schedules.json')
             .then((res) => {
-                console.log(`res: `, res);
                 if (!res.data) {
                     setNoData(true);
                     toast.error("No Schedules Found");
@@ -90,7 +88,6 @@ export default function UserViewSchedule({ user }) {
             })
     }, [addSchedule])
 
-    console.log(`userSchedule: `, userSchedule);
 
     const renderAddSchedule = () => {
         const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
