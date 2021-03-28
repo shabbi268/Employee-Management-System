@@ -150,10 +150,10 @@ export default function AdminManageLeavesView() {
                     setIsLoading(false);
                     toast.success(`Leave Approved Successfully`);
                     const mailOptions = {
-                        to: leave.user[0].email,
-                        email: 'shabarish.shabbi@gmail.com',
                         subject: 'Leave Approved',
-                        message: 'Your Leave Application for ' + leave.numberOfDays + ' days is Approved by the Admin.'
+                        employeeName: leave.user[0].firstname + ' ' + leave.user[0].lastname,
+                        message: 'Your Leave Application for ' + leave.numberOfDays + ' days is Approved by the Admin.',
+                        userEmail: leave.user[0].email,
                     };
                     sendEmail(mailOptions);
                 })

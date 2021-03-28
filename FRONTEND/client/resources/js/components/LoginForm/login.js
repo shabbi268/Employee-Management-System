@@ -86,10 +86,10 @@ export function Login() {
                         initializeUser();
                         toast.success(`Employee with role - ` + userType.toUpperCase() + ` created Successfully`);
                         const mailOptions = {
-                            to: user.email,
-                            email: 'shabarish.shabbi@gmail.com',
                             subject: user.userType + ' Account Created',
-                            message: 'Your account on the Employee Management Application is created successfully with username:' + user.username + '.'
+                            employeeName: user.firstname + ' ' + user.lastname,
+                            message: 'Your account on the Employee Management Application is created successfully with username:' + user.username + '.',
+                            userEmail: user.email,
                         };
                         sendEmail(mailOptions);
                     })

@@ -1,13 +1,15 @@
 import emailjs from 'emailjs-com';
 
 export function sendEmail(mailOptions) {
-  const { to, email, subject, message } = mailOptions
+  const { subject, employeeName, message, userEmail } = mailOptions
   let templateParams = {
-    from_name: email,
-    to_name: to,
     subject: subject,
+    to_name: employeeName,
     message: message,
+    to_email: userEmail,
+    reply_to: "shabarish.shabbi@gmail.com",
   }
+
   emailjs.send(
     'service_z8svvpd',
     'template_e37ulal',
