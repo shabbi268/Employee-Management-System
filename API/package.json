@@ -1,12 +1,12 @@
 {
-  "name": "cat-api",
+  "name": "ems",
   "version": "1.0.0",
-  "description": "Cat Corrections API",
+  "description": "Employee Management Application",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --watch ./src --inspect=3100 ./index.js dev"
   },
-  "author": "Paul Wilson",
+  "author": "Shabarish Kesa",
   "license": "UNLICENSED",
   "dependencies": {
     "app-root-path": "^2.2.1",
