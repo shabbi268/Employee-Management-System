@@ -46,16 +46,16 @@ export function UserOptions({ user }) {
             <Typography variant="h3">User Options</Typography>
             <div style={{ marginTop: "10px" }}>
                 <div className={classes.root}>
-                    <Button color="primary" variant="outlined" size="medium" onClick={() => { setViewMyData(true); setApplyLeave(false); setViewLeaves(false); setViewSchedule(false) }}>
+                    <Button color="primary" variant="contained" size="medium" onClick={() => { setViewMyData(true); setApplyLeave(false); setViewLeaves(false); setViewSchedule(false) }}>
                         View My Profile
                     </Button>
-                    <Button color="primary" variant="outlined" size="medium" onClick={() => { setApplyLeave(true); setViewMyData(false); setViewLeaves(false); setViewSchedule(false) }}>
+                    <Button color="primary" variant="contained" size="medium" onClick={() => { setApplyLeave(true); setViewMyData(false); setViewLeaves(false); setViewSchedule(false) }}>
                         Apply For Leave
                     </Button>
-                    <Button color="primary" variant="outlined" size="medium" onClick={() => { setApplyLeave(false); setViewMyData(false); setViewLeaves(true); setViewSchedule(false) }}>
+                    <Button color="primary" variant="contained" size="medium" onClick={() => { setApplyLeave(false); setViewMyData(false); setViewLeaves(true); setViewSchedule(false) }}>
                         View My Leave Applications
                     </Button>
-                    <Button color="primary" variant="outlined" size="medium" onClick={() => { setApplyLeave(false); setViewMyData(false); setViewLeaves(false); setViewSchedule(true) }}>
+                    <Button color="primary" variant="contained" size="medium" onClick={() => { setApplyLeave(false); setViewMyData(false); setViewLeaves(false); setViewSchedule(true) }}>
                         View My Work Schedule
                     </Button>
                 </div>

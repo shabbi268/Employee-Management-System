@@ -45,16 +45,16 @@ export function AdminOptions() {
             <Typography variant="h3">Admin Options</Typography>
             <div style={{ marginTop: "10px" }}>
                 <div className={classes.root}>
-                    <Button color="primary" variant="outlined" size="medium" onClick={() => { setNewEmployee(true); setViewEmployee(false); setManageLeaves(false); setViewSchedules(false) }}>
+                    <Button color="primary" variant="contained" size="medium" onClick={() => { setNewEmployee(true); setViewEmployee(false); setManageLeaves(false); setViewSchedules(false) }}>
                         Add New Employee
                     </Button>
-                    <Button color="primary" variant="outlined" size="medium" onClick={() => { setViewEmployee(true); setNewEmployee(false); setManageLeaves(false); setViewSchedules(false) }}>
+                    <Button color="primary" variant="contained" size="medium" onClick={() => { setViewEmployee(true); setNewEmployee(false); setManageLeaves(false); setViewSchedules(false) }}>
                         View Employee List
                     </Button>
-                    <Button color="primary" variant="outlined" size="medium" onClick={() => { setViewEmployee(false); setNewEmployee(false); setManageLeaves(true); setViewSchedules(false) }}>
+                    <Button color="primary" variant="contained" size="medium" onClick={() => { setViewEmployee(false); setNewEmployee(false); setManageLeaves(true); setViewSchedules(false) }}>
                         View Leave Applications
                     </Button>
-                    <Button color="primary" variant="outlined" size="medium" onClick={() => { setViewEmployee(false); setNewEmployee(false); setManageLeaves(false); setViewSchedules(true) }}>
+                    <Button color="primary" variant="contained" size="medium" onClick={() => { setViewEmployee(false); setNewEmployee(false); setManageLeaves(false); setViewSchedules(true) }}>
                         View Employee Schedules
                     </Button>
                 </div>

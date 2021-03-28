@@ -198,12 +198,9 @@ export default function UserViewSchedule({ user }) {
                 <Button color="primary" variant="outlined" size="medium" onClick={() => { setAddSchedule(true); setUpdateSchedule(false); }}>
                     Add Schedule
                 </Button>
-                <Button color="primary" variant="outlined" size="medium" onClick={() => { setAddSchedule(false); setUpdateSchedule(true); }}>
-                    Update Schedule
-                </Button>
             </div>
-            {noData && addSchedule && renderAddSchedule()}
-            {isLoading && <Spinner loading={isLoading}></Spinner>}
+            { addSchedule && renderAddSchedule()}
+            { isLoading && <Spinner loading={isLoading}></Spinner>}
         </div>
     )
 }
