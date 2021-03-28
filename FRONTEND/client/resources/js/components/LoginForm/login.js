@@ -101,79 +101,81 @@ export function Login() {
         };
 
         return ((!isLoggedIn && registerClicked) ? <div>
-            <Typography variant="h4">Register</Typography>
-            <form id="register-form" style={{ margin: "10px", display: "inline-grid" }} noValidate autoComplete="off">
-                <TextField label="First Name"
-                    variant="outlined"
-                    margin="normal"
-                    value={firstname}
-                    onChange={(e) => {
-                        setFirstname(e.target.value)
-                    }}
-                    autoFocus
-                    {...textFieldProps} />
-                <TextField label="Last Name"
-                    variant="outlined"
-                    margin="normal"
-                    value={lastname}
-                    onChange={(e) => {
-                        setLastname(e.target.value)
-                    }}
-                    autoFocus
-                    {...textFieldProps} />
-                <TextField label="UserName"
-                    variant="outlined"
-                    margin="normal"
-                    value={username}
-                    onChange={(e) => {
-                        setUsername(e.target.value)
-                    }}
-                    autoFocus
-                    {...textFieldProps} />
-                <TextField label="Password"
-                    type="password"
-                    variant="outlined"
-                    margin="normal"
-                    value={password}
-                    onChange={(e) => {
-                        setPassword(e.target.value)
-                    }}
-                    {...textFieldProps} />
-                <TextField label="Confirm Password"
-                    type="text"
-                    variant="outlined"
-                    margin="normal"
-                    value={confirmPassword}
-                    onChange={(e) => {
-                        setConfirmPassword(e.target.value)
-                    }}
-                    {...textFieldProps} />
-                <FormControl className={classes.formControl}>
-                    <InputLabel id="demo-simple-select-label">User Type*:</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={userType}
-                        onChange={(e) => setUserType(e.target.value)}
-                    >
-                        <MenuItem value={"ADMIN"}>ADMIN</MenuItem>
-                        <MenuItem value={"USER"}>USER</MenuItem>
-                    </Select>
-                </FormControl>
-                <div className={classes.root}>
-                    <Button type="cancel"
-                        form="register-form"
-                        variant="contained"
-                        color="secondary"
-                        onClick={() => { setUsername(""); setPassword(""); setConfirmPassword("") }}>Cancel</Button>
-                    <Button type="submit"
-                        form="register-form"
-                        variant="contained"
-                        color="primary"
-                        onClick={() => { confirmRegister() }}>Register</Button>
-                </div>
-            </form>
-        </div > : undefined)
+            <div style={{ border: "dashed 2px darkblue", marginTop: "10px" }}>
+                <Typography variant="h4">Register</Typography>
+                <form id="register-form" style={{ margin: "10px", display: "inline-grid" }} noValidate autoComplete="off">
+                    <TextField label="First Name"
+                        variant="outlined"
+                        margin="normal"
+                        value={firstname}
+                        onChange={(e) => {
+                            setFirstname(e.target.value)
+                        }}
+                        autoFocus
+                        {...textFieldProps} />
+                    <TextField label="Last Name"
+                        variant="outlined"
+                        margin="normal"
+                        value={lastname}
+                        onChange={(e) => {
+                            setLastname(e.target.value)
+                        }}
+                        autoFocus
+                        {...textFieldProps} />
+                    <TextField label="UserName"
+                        variant="outlined"
+                        margin="normal"
+                        value={username}
+                        onChange={(e) => {
+                            setUsername(e.target.value)
+                        }}
+                        autoFocus
+                        {...textFieldProps} />
+                    <TextField label="Password"
+                        type="password"
+                        variant="outlined"
+                        margin="normal"
+                        value={password}
+                        onChange={(e) => {
+                            setPassword(e.target.value)
+                        }}
+                        {...textFieldProps} />
+                    <TextField label="Confirm Password"
+                        type="text"
+                        variant="outlined"
+                        margin="normal"
+                        value={confirmPassword}
+                        onChange={(e) => {
+                            setConfirmPassword(e.target.value)
+                        }}
+                        {...textFieldProps} />
+                    <FormControl className={classes.formControl}>
+                        <InputLabel id="demo-simple-select-label">User Type*:</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={userType}
+                            onChange={(e) => setUserType(e.target.value)}
+                        >
+                            <MenuItem value={"ADMIN"}>ADMIN</MenuItem>
+                            <MenuItem value={"USER"}>USER</MenuItem>
+                        </Select>
+                    </FormControl>
+                    <div className={classes.root}>
+                        <Button type="cancel"
+                            form="register-form"
+                            variant="contained"
+                            color="secondary"
+                            onClick={() => { setUsername(""); setPassword(""); setConfirmPassword("") }}>Cancel</Button>
+                        <Button type="submit"
+                            form="register-form"
+                            variant="contained"
+                            color="primary"
+                            onClick={() => { confirmRegister() }}>Register</Button>
+                    </div>
+                </form>
+            </div>
+        </div> : undefined)
     }
 
     const renderLoginForm = () => {
@@ -235,7 +237,7 @@ export function Login() {
         return (
             (!isLoggedIn && loginClicked) ?
                 (<div>
-                    <div>
+                    <div style={{ border: "dashed 2px darkblue", marginTop: "10px" }}>
                         <Typography variant="h4" style={{ marginTop: "10px" }}>Login</Typography>
                         <form onSubmit={onSubmit} id="login-form" style={{ margin: "10px", display: "inline-grid" }} noValidate autoComplete="off">
                             <TextField label="UserName"
@@ -286,7 +288,7 @@ export function Login() {
             </div>
             {registerClicked && renderRegisterForm()}
             {loginClicked && renderLoginForm()}
-            {isLoggedIn && isAdmin && <AdminOptions isLoggedIn={isLoggedIn} />}
+            {isLoggedIn && isAdmin && <AdminOptions />}
             {isLoggedIn && isUser && <UserOptions user={loggedInUser} />}
             {isLoading && <Spinner loading={isLoading}></Spinner>}
         </div>

@@ -39,7 +39,6 @@ export default function UserApplyLeave({ user }) {
         },
     };
 
-    console.log(`user in leave: `, user);
 
     const handleFieldChange = (key, value) => {
         setLeave(
@@ -51,14 +50,12 @@ export default function UserApplyLeave({ user }) {
 
     const handleDate = (event) => {
         const date = dateConverter(event.target.value);
-        console.log(`convertedDate: `, date);
         setLeave({ fromDate: date, numberOfDays: leave.numberOfDays })
     }
 
     const onSubmit = async (e) => {
         setIsLoading(true);
         if (e) e.preventDefault();
-        console.log(`leave: `, leave, user)
         if (leave.fromDate <= new Date()) {
             toast.error("From Date cant be less than today's Date");
             return;
@@ -73,12 +70,10 @@ export default function UserApplyLeave({ user }) {
             numberOfDays: leave.numberOfDays,
             approved: false
         }
-        console.log(`leaveApplicationData: `, leaveApplicationData);
         try {
             await axios.post("/leaveApplications.json", leaveApplicationData)
                 .then((response) => {
                     toast.success("Successfully Submitted Leave Application.")
-                    console.log(`leave response: `, response)
                     setIsLoading(false);
                     setLeave({
                         fromDate: new Date(),

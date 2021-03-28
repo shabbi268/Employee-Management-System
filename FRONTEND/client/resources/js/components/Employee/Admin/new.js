@@ -89,61 +89,63 @@ export function AdminEmployeeNew() {
             <div>
                 This is Admin Employee New Form
             </div>
-            {!isLoading && <form onSubmit={onSubmit} id="add-form" style={{
-                margin: "10px", display: "block",
-                marginLeft: "12rem",
-                marginRight: "12rem"
-            }} noValidate autoComplete="off">
-                <Typography variant="h4" style={{ textAlign: "center" }} >Add Employee</Typography>
-                <TextField label="First Name*"
-                    type="text"
-                    variant="outlined"
-                    margin="normal"
-                    value={employee.firstname}
-                    onChange={(e) => handleFieldChange("firstname", e.target.value)}
-                    autoFocus
-                    {...textFieldProps} />
-                <TextField
-                    label="Last Name*"
-                    type="text"
-                    variant="outlined"
-                    margin="normal"
-                    value={employee.lastname}
-                    onChange={(e) => handleFieldChange("lastname", e.target.value)}
-                    {...textFieldProps} />
-                <TextField
-                    type="date"
-                    variant="outlined"
-                    margin="normal"
-                    value={employee.dob}
-                    {...textFieldProps}
-                    onChange={handleDOB}>
-                </TextField>
-                <FormControl className={classes.formControl}>
-                    <InputLabel id="demo-simple-select-label">Employment Type*:</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={employee.employmentType}
-                        onChange={(e) => handleFieldChange("employmentType", e.target.value)}
-                    >
-                        <MenuItem value={"Full-Time"}>Full-Time</MenuItem>
-                        <MenuItem value={"Part-Time"}>Part-Time</MenuItem>
-                        <MenuItem value={"Contract"}>Contract</MenuItem>
-                    </Select>
-                </FormControl>
-                <div className={classes.root}>
-                    <Button type="submit"
-                        form="add-form"
-                        variant="contained"
-                        color="primary">Save</Button>
-                    <Button type="cancel"
-                        form="add-form"
-                        variant="contained"
-                        onClick={() => { setEmployee({ firstname: "", lastname: "", dob: new Date(), employmentType: "" }) }}
-                        color="secondary">Cancel</Button>
-                </div>
-            </form>}
+            <div style={{ border: "dashed 2px darkblue" }}>
+                {!isLoading && <form onSubmit={onSubmit} id="add-form" style={{
+                    margin: "10px", display: "block",
+                    marginLeft: "12rem",
+                    marginRight: "12rem"
+                }} noValidate autoComplete="off">
+                    <Typography variant="h4" style={{ textAlign: "center" }} >Add Employee</Typography>
+                    <TextField label="First Name*"
+                        type="text"
+                        variant="outlined"
+                        margin="normal"
+                        value={employee.firstname}
+                        onChange={(e) => handleFieldChange("firstname", e.target.value)}
+                        autoFocus
+                        {...textFieldProps} />
+                    <TextField
+                        label="Last Name*"
+                        type="text"
+                        variant="outlined"
+                        margin="normal"
+                        value={employee.lastname}
+                        onChange={(e) => handleFieldChange("lastname", e.target.value)}
+                        {...textFieldProps} />
+                    <TextField
+                        type="date"
+                        variant="outlined"
+                        margin="normal"
+                        value={employee.dob}
+                        {...textFieldProps}
+                        onChange={handleDOB}>
+                    </TextField>
+                    <FormControl className={classes.formControl}>
+                        <InputLabel id="demo-simple-select-label">Employment Type*:</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={employee.employmentType}
+                            onChange={(e) => handleFieldChange("employmentType", e.target.value)}
+                        >
+                            <MenuItem value={"Full-Time"}>Full-Time</MenuItem>
+                            <MenuItem value={"Part-Time"}>Part-Time</MenuItem>
+                            <MenuItem value={"Contract"}>Contract</MenuItem>
+                        </Select>
+                    </FormControl>
+                    <div className={classes.root}>
+                        <Button type="submit"
+                            form="add-form"
+                            variant="contained"
+                            color="primary">Save</Button>
+                        <Button type="cancel"
+                            form="add-form"
+                            variant="contained"
+                            onClick={() => { setEmployee({ firstname: "", lastname: "", dob: new Date(), employmentType: "" }) }}
+                            color="secondary">Cancel</Button>
+                    </div>
+                </form>}
+            </div>
             <Toaster />
             {isLoading && <Spinner loading={isLoading}></Spinner>}
         </>

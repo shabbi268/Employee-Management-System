@@ -20,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
 export default function UserViewLeaves({ user }) {
     const classes = useStyles();
     const [isLoading, setIsLoading] = useState(false);
-    console.log(`user in view leaves: `, user);
     const [matchedLeaves, setMatchedLeaves] = useState([]);
     const [noData, setNoData] = useState(true);
 
@@ -53,7 +52,7 @@ export default function UserViewLeaves({ user }) {
                 }
                 setIsLoading(false);
                 toast.success(
-                    "Successfully Fetched Employees List."
+                    "Successfully Fetched Leaves."
                 );
             })
             .catch((err) => {
@@ -64,7 +63,6 @@ export default function UserViewLeaves({ user }) {
             })
     }, [])
 
-    console.log(`matchedLeaves: `, matchedLeaves);
 
     return (
         <div>
@@ -79,15 +77,18 @@ export default function UserViewLeaves({ user }) {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            <TableRow key={matchedLeaves[0].id}>
-                                <TableCell align="center">
-                                    {matchedLeaves[0].fromDate}
-                                </TableCell>
-                                <TableCell align="center">
-                                    {matchedLeaves[0].numberOfDays}
-                                </TableCell>
-                                <TableCell align="center">{matchedLeaves[0].approved ? "Approved" : "Waiting For Approval"}</TableCell>
-                            </TableRow>
+                            {matchedLeaves.map((leave, index) => (
+                                <TableRow key={leave.id}>
+                                    <TableCell align="center">
+                                        {leave.fromDate}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {leave.numberOfDays}
+                                    </TableCell>
+                                    <TableCell align="center">{leave.approved ? "Approved" : "Waiting For Approval"}</TableCell>
+                                </TableRow>
+                            ))}
+
                         </TableBody>
                     </Table>
                 </TableContainer>
