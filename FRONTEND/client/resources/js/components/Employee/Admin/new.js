@@ -86,9 +86,6 @@ export function AdminEmployeeNew() {
 
     return (
         <>
-            <div>
-                This is Admin Employee New Form
-            </div>
             <div style={{ border: "dashed 2px darkblue" }}>
                 {!isLoading && <form onSubmit={onSubmit} id="add-form" style={{
                     margin: "10px", display: "block",

@@ -143,7 +143,6 @@ export function UserEmployeeView({ user }) {
 
     return (
         <div>
-            This is User Employee View
             {!isLoading && <div>
                 <TableContainer component={Paper}>
                     <Table className={classes.table} aria-label="simple table">

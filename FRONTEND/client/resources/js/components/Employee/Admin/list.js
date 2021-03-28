@@ -277,9 +277,6 @@ export function AdminEmployeeView() {
 
     return (
         <div>
-            <div>
-                This is Admin Employee View
-            </div>
             {!isLoading && !noData && <div>
                 <TableContainer component={Paper}>
                     <Table className={classes.table} aria-label="simple table">
