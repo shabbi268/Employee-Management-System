@@ -58,10 +58,9 @@ export function UserEmployeeView({ user }) {
                 await axios.delete('/users/' + editableUser.id + '.json')
                 await axios.post('/users.json', editableUser)
                     .then((res) => {
-                        toast.success("User Updated Successfully.");
+                        toast.success("Employee Data Updated Successfully.");
                         setIsLoading(false);
                         setShowRequestChangeDialog(false);
-                        window.location.reload();
                     })
                     .catch(err => {
                         setIsLoading(false);
@@ -105,6 +104,14 @@ export function UserEmployeeView({ user }) {
                         onChange={(e) => handleFieldChange("lastname", e.target.value)}
                         {...textFieldProps} />
                     <TextField
+                        label="Email*"
+                        type="email"
+                        variant="outlined"
+                        margin="normal"
+                        value={editableUser.email}
+                        onChange={(e) => handleFieldChange("email", e.target.value)}
+                        {...textFieldProps} />
+                    <TextField
                         label="Username*"
                         type="text"
                         variant="outlined"
@@ -144,16 +151,20 @@ export function UserEmployeeView({ user }) {
                             <TableRow>
                                 <TableCell align="center">First Name</TableCell>
                                 <TableCell align="center">Last Name</TableCell>
+                                <TableCell align="center">Email</TableCell>
+                                <TableCell align="center">UserName</TableCell>
                                 <TableCell align="center">User Type</TableCell>
                                 <TableCell align="center">Actions</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                             <TableRow key={editableUser.id}>
-                                <TableCell component="th" scope="row">
+                                <TableCell align="center">
                                     {editableUser.firstname}
                                 </TableCell>
                                 <TableCell align="center">{editableUser.lastname}</TableCell>
+                                <TableCell align="center">{editableUser.email}</TableCell>
+                                <TableCell align="center">{editableUser.username}</TableCell>
                                 <TableCell align="center">{editableUser.userType}</TableCell>
                                 <TableCell align="center">
                                     <IconButton onClick={() => { setShowRequestChangeDialog(true); }} aria-label="edit">

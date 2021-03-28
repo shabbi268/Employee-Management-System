@@ -41,6 +41,7 @@ export function Login() {
     const [loginClicked, setLoginClicked] = useState(false);
     const [registerClicked, setRegisterClicked] = useState(false);
     const [loggedInUser, setLoggedInUser] = useState([]);
+    const [email, setEmail] = useState("");
 
     const textFieldProps = {
         variant: "outlined",
@@ -57,6 +58,7 @@ export function Login() {
         setPassword("");
         setConfirmPassword("");
         setUsername("");
+        setEmail("");
     }
 
     const renderRegisterForm = () => {
@@ -72,19 +74,16 @@ export function Login() {
                     setPassword("");
                     setConfirmPassword("");
                 }
-                if (userType == "USER" && !username.toLowerCase().includes("user")) {
-                    toast.error("Username must contain the word User")
+                if (password.length < 6) {
+                    toast.error("Password should have minimum length of 6.");
                 }
-                if (userType == "ADMIN" && !username.toLowerCase().includes("admin")) {
-                    toast.error("Username must contain the word Admin")
-                }
-                const user = { firstname: firstname, lastname: lastname, username: username, password: password, userType: userType }
+                const user = { firstname: firstname, lastname: lastname, email: email, username: username, password: password, userType: userType }
                 await axios.post('/users.json', user)
                     .then(response => {
                         setIsLoading(true);
                         setIsLoggedIn(true);
                         initializeUser();
-                        toast.success(`Employee with role - ` + userType + ` created Successfully`);
+                        toast.success(`Employee with role - ` + userType.toUpperCase() + ` created Successfully`);
                     })
                     .catch(err => {
                         setIsLoading(false);
@@ -128,6 +127,16 @@ export function Login() {
                         value={username}
                         onChange={(e) => {
                             setUsername(e.target.value)
+                        }}
+                        autoFocus
+                        {...textFieldProps} />
+                    <TextField label="Email"
+                        type="email"
+                        variant="outlined"
+                        margin="normal"
+                        value={email}
+                        onChange={(e) => {
+                            setEmail(e.target.value)
                         }}
                         autoFocus
                         {...textFieldProps} />

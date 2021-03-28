@@ -295,7 +295,7 @@ export function AdminEmployeeView() {
                         <TableBody>
                             {data.map((row, index) => (
                                 <TableRow key={index}>
-                                    <TableCell component="th" scope="row">
+                                    <TableCell align="center">
                                         {row.firstname}
                                     </TableCell>
                                     <TableCell align="center">{row.lastname}</TableCell>
