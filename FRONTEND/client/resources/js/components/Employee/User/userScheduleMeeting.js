@@ -75,7 +75,6 @@ export default function UserScheduleMeeting({ user }) {
 
     }, [])
 
-    console.log(`users: `, users);
     const handleFieldChange = (key, value) => {
         setMeeting(
             produce((draftState) => {
