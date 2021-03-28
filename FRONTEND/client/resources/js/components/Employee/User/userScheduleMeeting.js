@@ -99,6 +99,13 @@ export default function UserScheduleMeeting({ user }) {
                 userEmail: meeting.recipientEmail,
             };
             sendEmail(mailOptions);
+            const mailOptions2 = {
+                subject: 'Meeting Scheduled with ' + meeting.recipientEmail,
+                employeeName: meeting.user.email,
+                message: 'You scheduled a meeting with ' + meeting.recipientEmail,
+                userEmail: meeting.user.email,
+            };
+            sendEmail(mailOptions2);
             setIsLoading(false);
             toast.success("Meeting Scheduled Successfully.")
             setMeeting({ date: new Date(), recipientEmail: "", time: "", user: user })
