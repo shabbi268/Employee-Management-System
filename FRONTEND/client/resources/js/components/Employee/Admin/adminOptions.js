@@ -53,7 +53,7 @@ export function AdminOptions() {
                 <div style={{ marginTop: "20px" }}>{viewEmployee && renderAdminEmployeeView()}</div>
                 <div style={{ marginTop: "20px" }}>{manageLeaves && renderAdminManageLeaves()}</div>
             </div>
-            <Button style={{ marginTop: "10px" }} color="primary" variant="contained" size="medium" onClick={() => { window.location.reload() }}>
+            <Button style={{ marginTop: "10px" }} color="primary" variant="contained" size="medium" onClick={() => { window.location.replace("/login") }}>
                 Log Out
             </Button>
         </div>

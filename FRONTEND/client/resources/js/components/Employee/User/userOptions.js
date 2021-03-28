@@ -54,7 +54,7 @@ export function UserOptions({ user }) {
                 <div style={{ marginTop: "20px" }}>{applyLeave && renderApplyLeave()}</div>
                 <div style={{ marginTop: "20px" }}>{viewLeaves && renderViewMyLeaves()}</div>
             </div>
-            <Button style={{ marginTop: "10px" }} color="primary" variant="contained" size="medium" onClick={() => { window.location.reload() }}>
+            <Button style={{ marginTop: "10px" }} color="primary" variant="contained" size="medium" onClick={() => { window.location.replace("/login") }}>
                 Log Out
             </Button>
         </div>

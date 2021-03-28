@@ -235,7 +235,7 @@ export function Login() {
         };
 
         return (
-            (!isLoggedIn && loginClicked) ?
+            (!isLoggedIn && loginClicked && !isLoading) ?
                 (<div>
                     <div style={{ border: "dashed 2px darkblue", marginTop: "10px" }}>
                         <Typography variant="h4" style={{ marginTop: "10px" }}>Login</Typography>
@@ -258,11 +258,19 @@ export function Login() {
                                     setPassword(e.target.value)
                                 }}
                                 {...textFieldProps} />
-                            <Button type="submit"
-                                form="login-form"
-                                variant="contained"
-                                color="primary"
-                            >Login</Button>
+                            <div className={classes.root}>
+                                <Button
+                                    form="login-form"
+                                    variant="contained"
+                                    color="secondary"
+                                    onClick={() => { window.location.replace("/login") }}
+                                >Cancel</Button>
+                                <Button type="submit"
+                                    form="login-form"
+                                    variant="contained"
+                                    color="primary"
+                                >Login</Button>
+                            </div>
                         </form>
                     </div>
                 </div>) : undefined
@@ -270,7 +278,7 @@ export function Login() {
     }
 
     return (
-        <div style={{ textAlign: "center", marginTop: "25px", marginLeft: "300px", marginRight: "300px", padding: "20px", border: "solid 2px black" }}>
+        <div style={{ textAlign: "center", marginTop: "10rem", marginLeft: "300px", marginRight: "300px", padding: "20px", border: "solid 2px black" }}>
             <div>
                 {!isLoggedIn &&
                     <>

@@ -39,6 +39,7 @@ export default function AdminManageLeavesView() {
     const [noData, setNoData] = useState(false);
     const [userLeaves, setUserLeaves] = useState([]);
     const [users, setUsers] = useState([]);
+    const [callEffect, setCallEffect] = useState(false);
 
     useEffect(() => {
         setIsLoading(true);
@@ -59,6 +60,7 @@ export default function AdminManageLeavesView() {
                     setIsLoading(false);
                 });
             setUsers(usersList);
+            setIsLoading(false);
         }
         async function fetchLeavesList() {
             let ll = await axios.get('/leaveApplications.json')
@@ -66,7 +68,9 @@ export default function AdminManageLeavesView() {
                     let response2 = [];
                     for (const [key, value] of Object.entries(res.data)) {
                         value[`id`] = key;
-                        response2.push(value);
+                        if (value.approved == false) {
+                            response2.push(value);
+                        }
                     }
                     return response2;
                 })
@@ -77,12 +81,13 @@ export default function AdminManageLeavesView() {
                     setIsLoading(false);
                 })
             setLeavesList(ll);
+            setIsLoading(false);
         }
 
         fetchUsersList();
         fetchLeavesList();
 
-    }, [])
+    }, [callEffect])
 
     const fetchUsers = () => {
         if (leavesList.length == 0) {
@@ -140,13 +145,13 @@ export default function AdminManageLeavesView() {
             }
             await axios.post('/leaveApplications.json', leaveToUpdate)
                 .then(response => {
-                    newCache.push({
-                        id: response.name,
-                        user: leaveToUpdate.user,
-                        numberOfDays: leaveToUpdate.numberOfDays,
-                        fromDate: leaveToUpdate.numberOfDays,
-                        approved: true,
-                    })
+                    // newCache.push({
+                    //     id: response.name,
+                    //     user: leaveToUpdate.user,
+                    //     numberOfDays: leaveToUpdate.numberOfDays,
+                    //     fromDate: leaveToUpdate.numberOfDays,
+                    //     approved: true,
+                    // })
                     setLeavesList(newCache);
                     setIsLoading(false);
                     toast.success(`Leave Approved Successfully`);
@@ -154,6 +159,7 @@ export default function AdminManageLeavesView() {
                 .catch(err => {
                     setIsLoading(false);
                 });
+            setCallEffect(true);
         }
         catch (err) {
             setIsLoading(false);
@@ -190,6 +196,7 @@ export default function AdminManageLeavesView() {
                                     <TableCell align="center">{leave.numberOfDays}</TableCell>
                                     <TableCell align="center">
                                         <Button
+                                            disabled={leave.approved}
                                             color="secondary"
                                             variant="contained"
                                             onClick={() => approveLeave(leave)}>
@@ -210,6 +217,7 @@ export default function AdminManageLeavesView() {
                     Fetch Leave Applications
                 </Button>}
             {noData && <Typography variant="h4">No Leave Applications Available.</Typography>}
+            {isLoading && <Spinner loading={isLoading}></Spinner>}
         </div>
     )
 }
