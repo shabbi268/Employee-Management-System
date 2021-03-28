@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) =>
     }),
 );
 
-export function AdminOptions({ isLoggedIn }) {
+export function AdminOptions() {
     const classes = useStyles();
     const [newEmployee, setNewEmployee] = useState(false);
     const [viewEmployee, setViewEmployee] = useState(false);
