@@ -88,7 +88,6 @@ export default function UserViewLeaves({ user }) {
                                     <TableCell align="center">{leave.approved ? "Approved" : "Waiting For Approval"}</TableCell>
                                 </TableRow>
                             ))}
-
                         </TableBody>
                     </Table>
                 </TableContainer>
