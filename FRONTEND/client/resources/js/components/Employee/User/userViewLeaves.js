@@ -52,7 +52,7 @@ export default function UserViewLeaves({ user }) {
                 }
                 setIsLoading(false);
                 toast.success(
-                    "Successfully Fetched Employees List."
+                    "Successfully Fetched Leaves."
                 );
             })
             .catch((err) => {
