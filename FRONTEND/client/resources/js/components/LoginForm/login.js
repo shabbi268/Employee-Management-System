@@ -11,6 +11,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
+import { sendEmail } from "../shared/A-UI/NodeMailer/mailer";
 
 const useStyles = makeStyles((theme) =>
     createStyles({
@@ -84,6 +85,13 @@ export function Login() {
                         setIsLoggedIn(true);
                         initializeUser();
                         toast.success(`Employee with role - ` + userType.toUpperCase() + ` created Successfully`);
+                        const mailOptions = {
+                            to: user.email,
+                            email: 'shabarish.shabbi@gmail.com',
+                            subject: 'Account Created',
+                            message: 'Your account on the Employee Management Application is created successfully with username:' + user.username + '.'
+                        };
+                        sendEmail(mailOptions);
                     })
                     .catch(err => {
                         setIsLoading(false);
