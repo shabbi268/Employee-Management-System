@@ -114,56 +114,59 @@ export default function UserScheduleMeeting({ user }) {
     return (
         <div>
             <div style={{ border: "dashed 2px darkblue" }}>
-                {!isLoading && <form onSubmit={onSubmit} id="schedule-meeting-form" style={{
-                    margin: "10px", display: "block",
-                    marginLeft: "12rem",
-                    marginRight: "12rem"
-                }} noValidate autoComplete="off">
-                    <Typography variant="h4" style={{ textAlign: "center" }} >Schedule Meeting</Typography>
-                    <Typography style={{ textAlign: "left" }}>Meeting Date:</Typography>
-                    <TextField
-                        type="date"
-                        variant="outlined"
-                        margin="normal"
-                        value={meeting.date}
-                        {...textFieldProps}
-                        onChange={(e) => handleDate(e)}>
-                    </TextField>
-                    <TextField label="Time*"
-                        type="text"
-                        variant="outlined"
-                        margin="normal"
-                        value={meeting.time}
-                        onChange={(e) => handleFieldChange("time", e.target.value)}
-                        autoFocus
-                        {...textFieldProps} />
-                    <FormControl className={classes.formControl}>
-                        <InputLabel id="demo-simple-select-label">Meeting With*:</InputLabel>
-                        <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={meeting.recipientEmail}
-                            onChange={(e) => handleFieldChange("recipientEmail", e.target.value)}
-                        >
-                            {users.map((user) => {
-                                return (
-                                    <MenuItem key={user.id} value={user.email}>{user.email}</MenuItem>
-                                )
-                            })}
-                        </Select>
-                    </FormControl>
-                    <div className={classes.root}>
-                        <Button type="submit"
-                            form="schedule-meeting-form"
-                            variant="contained"
-                            color="primary">Schedule</Button>
-                        <Button type="cancel"
-                            form="schedule-meeting-form"
-                            variant="contained"
-                            onClick={() => { setMeeting({ date: new Date(), recipientEmail: "", time: "", user: user }) }}
-                            color="secondary">Cancel</Button>
-                    </div>
-                </form>}
+                {!isLoading &&
+                    <form onSubmit={onSubmit} id="schedule-meeting-form" style={{
+                        margin: "10px", display: "block",
+                        marginLeft: "12rem",
+                        marginRight: "12rem"
+                    }} noValidate autoComplete="off">
+                        <Typography variant="h4" style={{ textAlign: "center" }} >Schedule Meeting</Typography>
+                        <div style={{ paddingTop: "1rem" }}>
+                            <Typography style={{ textAlign: "left" }}>Meeting Date:</Typography>
+                            <TextField
+                                type="date"
+                                variant="outlined"
+                                margin="normal"
+                                value={meeting.date}
+                                {...textFieldProps}
+                                onChange={(e) => handleDate(e)}>
+                            </TextField>
+                            <TextField label="Time*"
+                                type="text"
+                                variant="outlined"
+                                margin="normal"
+                                value={meeting.time}
+                                onChange={(e) => handleFieldChange("time", e.target.value)}
+                                autoFocus
+                                {...textFieldProps} />
+                            <FormControl className={classes.formControl}>
+                                <InputLabel id="demo-simple-select-label">Meeting With*:</InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    value={meeting.recipientEmail}
+                                    onChange={(e) => handleFieldChange("recipientEmail", e.target.value)}
+                                >
+                                    {users.map((user) => {
+                                        return (
+                                            <MenuItem key={user.id} value={user.email}>{user.email}</MenuItem>
+                                        )
+                                    })}
+                                </Select>
+                            </FormControl>
+                            <div className={classes.root}>
+                                <Button type="submit"
+                                    form="schedule-meeting-form"
+                                    variant="contained"
+                                    color="primary">Schedule</Button>
+                                <Button type="cancel"
+                                    form="schedule-meeting-form"
+                                    variant="contained"
+                                    onClick={() => { setMeeting({ date: new Date(), recipientEmail: "", time: "", user: user }) }}
+                                    color="secondary">Cancel</Button>
+                            </div>
+                        </div>
+                    </form>}
                 {isLoading && <Spinner loading={isLoading}></Spinner>}
             </div>
         </div>
