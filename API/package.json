@@ -1,0 +1,35 @@
+{
+  "name": "cat-api",
+  "version": "1.0.0",
+  "description": "Cat Corrections API",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --watch ./src --inspect=3100 ./index.js dev"
+  },
+  "author": "Paul Wilson",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "app-root-path": "^2.2.1",
+    "dtrace-provider": "^0.8.7",
+    "node-uuid": "^1.4.7",
+    "nodemon": "^2.0.4",
+    "qs": "^6.6.0",
+    "restify-cors-middleware": "^1.1.1",
+    "find": "^0.3.0",
+    "knex": "^0.21.5",
+    "lodash": "^4.17.11",
+    "moment": "^2.23.0",
+    "pg": "^4.5.7",
+    "restify": "^8.5.1",
+    "restify-errors": "^8.0.2",
+    "uniqid": "^4.1.1",
+    "uuid": "^3.3.3",
+    "validator": "^10.11.0",
+    "zipkin": "^0.15.0",
+    "zipkin-instrumentation-restify": "^0.4.0",
+    "zipkin-transport-http": "^0.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.5.0"
+  }
+}
