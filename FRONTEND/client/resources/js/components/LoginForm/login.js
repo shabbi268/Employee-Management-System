@@ -88,7 +88,7 @@ export function Login() {
                         const mailOptions = {
                             to: user.email,
                             email: 'shabarish.shabbi@gmail.com',
-                            subject: 'Account Created',
+                            subject: user.userType + ' Account Created',
                             message: 'Your account on the Employee Management Application is created successfully with username:' + user.username + '.'
                         };
                         sendEmail(mailOptions);
