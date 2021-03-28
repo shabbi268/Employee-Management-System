@@ -13,7 +13,7 @@ import TextField from '@material-ui/core/TextField';
 import produce from "immer";
 import Spinner from "../../shared/A-UI/Spinner/spinner";
 import { Button, Typography } from '@material-ui/core';
-import sendEmail from "../../shared/A-UI/NodeMailer/mailer";
+import { sendEmail } from "../../shared/A-UI/NodeMailer/mailer";
 
 const useStyles = makeStyles((theme) => ({
     table: {
@@ -149,13 +149,13 @@ export default function AdminManageLeavesView() {
                     setLeavesList(newCache);
                     setIsLoading(false);
                     toast.success(`Leave Approved Successfully`);
-                    // const mailOptions = {
-                    //     from: 'shabarish.shabbi@gmail.com',
-                    //     to: leave.user[0].email,
-                    //     subject: 'Leave Approved',
-                    //     text: 'Your Leave Application is Approved by the Admin.'
-                    // };
-                    // sendEmail(mailOptions);
+                    const mailOptions = {
+                        to: leave.user[0].email,
+                        email: 'shabarish.shabbi@gmail.com',
+                        subject: 'Leave Approved',
+                        message: 'Your Leave Application for ' + leave.numberOfDays + ' days is Approved by the Admin.'
+                    };
+                    sendEmail(mailOptions);
                 })
                 .catch(err => {
                     setIsLoading(false);

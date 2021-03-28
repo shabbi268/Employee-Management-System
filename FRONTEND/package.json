@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Employee Management Application",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "gulp && npm run webpack",
     "dev": "npm run build && nodemon --watch ./src/libs --watch ./src/routes --inspect=4667 ./index.js",
@@ -20,6 +21,7 @@
     "bootstrap": "^3.4.1",
     "compression": "^1.6.2",
     "ejs": "^2.4.2",
+    "emailjs-com": "^2.6.4",
     "express": "^4.14.0",
     "immer": "^9.0.1",
     "jquery": "^3.5.1",
@@ -27,7 +29,6 @@
     "lodash": "^4.17.19",
     "moment": "^2.27.0",
     "next": "^10.0.9",
-    "nodemailer": "^6.5.0",
     "prop-types": "^15.7.2",
     "pump": "^3.0.0",
     "query-string": "^6.13.1",
