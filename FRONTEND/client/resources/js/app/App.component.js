@@ -26,7 +26,6 @@ export class App extends React.Component {
           </AppBar>
           <Route path="/home" component={DashboardBulletin} />
           <Route path="/login" exact component={Login} />
-          {/* <Route path="/assessment/list" component={AssessmentList} /> */}
           <Toaster />
         </div>
 
