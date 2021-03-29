@@ -19,6 +19,7 @@
     "body-parser": "^1.15.2",
     "bootstrap": "^3.4.1",
     "compression": "^1.6.2",
+    "dotenv": "^8.2.0",
     "ejs": "^2.4.2",
     "emailjs-com": "^2.6.4",
     "express": "^4.14.0",

@@ -1,7 +1,8 @@
 import axios from 'axios';
+require('dotenv').config();
 
 const instance = axios.create({
-    baseURL: 'https://k2513388-default-rtdb.firebaseio.com/'
+    baseURL: process.env.FIREBASE_URL
 });
 
 export default instance;

@@ -69,3 +69,8 @@ Second Tab:
 ```sh
 npm run webpack:dev
 ```
+
+## Database
+
+- The database for this application is hosted on amazon cloud firebase and if you want to create and host application on your own database
+- You can create a account in the [Firebase](https://firebase.google.com/) and copy the Database URL and replace the URL in the .env file in the FRONTEND folder.
