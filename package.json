@@ -4,11 +4,11 @@
   "description": "Employee Management Application",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "build": "gulp && npm run webpack",
     "dev": "npm run build && nodemon --watch ./src/libs --watch ./src/routes --inspect=4667 ./index.js",
     "webpack": "webpack --config webpack.config.js",
-    "webpack:dev": "npm run webpack -- --watch --display-error-details",
-    "start": "nodemon --watch ./src/libs --watch ./src/routes --inspect=4667 ./index.js"
+    "webpack:dev": "npm run webpack -- --watch --display-error-details"
   },
   "author": "Shabarish Kesa",
   "dependencies": {
@@ -40,6 +40,7 @@
     "react-dom-factories": "^1.0.2",
     "react-hot-toast": "^1.0.2",
     "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.3",
     "react-spinners": "^0.10.6",
     "request": "^2.88.2",
     "sass-loader": "^8.0.2",
