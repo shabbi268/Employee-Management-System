@@ -8,7 +8,7 @@
     "dev": "npm run build && nodemon --watch ./src/libs --watch ./src/routes --inspect=4667 ./index.js",
     "webpack": "webpack --config webpack.config.js",
     "webpack:dev": "npm run webpack -- --watch --display-error-details",
-    "start": "npm run build && nodemon --watch ./src/libs --watch ./src/routes --inspect=4667 ./index.js"
+    "start": "npm run webpack && nodemon --watch ./src/libs --watch ./src/routes --inspect=4667 ./index.js"
   },
   "author": "Shabarish Kesa",
   "dependencies": {
