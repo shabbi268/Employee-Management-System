@@ -41,7 +41,7 @@ export function AdminOptions() {
     }
 
     return (
-        <div>
+        <div >
             <Typography variant="h3">Admin Options</Typography>
             <div style={{ marginTop: "10px" }}>
                 <div className={classes.root}>
