@@ -12,7 +12,7 @@ export class App extends React.Component {
   render() {
     return <>
       <BrowserRouter>
-        <div >
+        <div>
           <AppBar position="static">
             <Toolbar>
               <div style={{ display: "flex" }}>

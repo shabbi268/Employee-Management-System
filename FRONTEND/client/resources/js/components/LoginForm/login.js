@@ -295,7 +295,7 @@ export function Login() {
     }
 
     return (
-        <div style={{ textAlign: "center", marginTop: "10rem", marginLeft: "300px", marginRight: "300px", padding: "20px", border: "solid 2px black" }}>
+        <div style={{ textAlign: "center", marginTop: "10rem", marginLeft: "300px", marginRight: "300px", padding: "20px", border: "solid 2px white" }}>
             <div>
                 {!isLoggedIn &&
                     <>
