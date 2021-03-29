@@ -188,10 +188,10 @@ export default function AdminManageLeavesView() {
                             {userLeaves.map((leave, index) => (
                                 <TableRow key={index}>
                                     <TableCell align="center">
-                                        {leave.user[0]?.firstname}
+                                        {leave.user[0]?.firstname.toUpperCase()}
                                     </TableCell>
                                     <TableCell align="center">
-                                        {leave.user[0]?.lastname}
+                                        {leave.user[0]?.lastname.toUpperCase()}
                                     </TableCell>
                                     <TableCell align="center">{leave.fromDate}</TableCell>
                                     <TableCell align="center">{leave.numberOfDays}</TableCell>

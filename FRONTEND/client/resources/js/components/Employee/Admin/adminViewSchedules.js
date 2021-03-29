@@ -89,8 +89,8 @@ export function AdminViewSchedules() {
                             return (
                                 <TableBody key={schedule.id}>
                                     <TableRow key={schedule.id}>
-                                        <TableCell align="center">{schedule.user?.firstname}</TableCell>
-                                        <TableCell align="center">{schedule.user?.lastname}</TableCell>
+                                        <TableCell align="center">{schedule.user?.firstname.toUpperCase()}</TableCell>
+                                        <TableCell align="center">{schedule.user?.lastname.toUpperCase()}</TableCell>
                                         <TableCell align="center">{schedule.user?.email}</TableCell>
                                         <TableCell align="center">
                                             {schedule.Monday}Hrs

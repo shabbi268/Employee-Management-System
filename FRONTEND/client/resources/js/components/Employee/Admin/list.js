@@ -293,11 +293,11 @@ export function AdminEmployeeView() {
                             {data.map((row, index) => (
                                 <TableRow key={index}>
                                     <TableCell align="center">
-                                        {row.firstname}
+                                        {row.firstname.toUpperCase()}
                                     </TableCell>
-                                    <TableCell align="center">{row.lastname}</TableCell>
+                                    <TableCell align="center">{row.lastname.toUpperCase()}</TableCell>
                                     <TableCell align="center">{row.dob}</TableCell>
-                                    <TableCell align="center">{row.employmentType}</TableCell>
+                                    <TableCell align="center">{row.employmentType.toUpperCase()}</TableCell>
                                     <TableCell align="center">
                                         <IconButton onClick={() => { setShowEditDialog(true); setEmployee(row) }} aria-label="edit">
                                             <EditIcon color="secondary" />
