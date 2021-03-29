@@ -159,9 +159,9 @@ export function UserEmployeeView({ user }) {
                         <TableBody>
                             <TableRow key={editableUser.id}>
                                 <TableCell align="center">
-                                    {editableUser.firstname}
+                                    {editableUser.firstname.toUpperCase()}
                                 </TableCell>
-                                <TableCell align="center">{editableUser.lastname}</TableCell>
+                                <TableCell align="center">{editableUser.lastname.toUpperCase()}</TableCell>
                                 <TableCell align="center">{editableUser.email}</TableCell>
                                 <TableCell align="center">{editableUser.username}</TableCell>
                                 <TableCell align="center">{editableUser.userType}</TableCell>
