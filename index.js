@@ -27,9 +27,9 @@ RouteLoader(app)
   .then(() => {
     app.all(`/*`, IndexRoute);
 
-    server.listen(config.server.port);
+    server.listen(process.env.PORT || 5000);
 
-    console.log(`Listening on port: ${config.server.port}!`); // eslint-disable-line
+    console.log(`Listening on port: ${process.env.PORT || 5000}!`); // eslint-disable-line
   })
   .catch((err) => {
     if (process.env.NODE_ENV !== `production`) {
