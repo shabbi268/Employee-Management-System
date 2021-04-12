@@ -159,7 +159,7 @@ export function AdminEmployeeView() {
 
         const handleDOB = (event) => {
             const editedDate = dateConverter(event.target.value);
-            setEmployee({ id: editEmployee.id, firstname: editEmployee.firstname, lastname: editEmployee.lastname, ssn: editEmployee.ssn, dob: editedDate, employmentType: editEmployee.employmentType })
+            setEmployee({ id: editEmployee.id, firstname: editEmployee.firstname, lastname: editEmployee.lastname, ssn: editEmployee.ssn, rate: editEmployee.rate, dob: editedDate, employmentType: editEmployee.employmentType })
         }
 
         const handleFieldChange = (key, value) => {
@@ -194,6 +194,7 @@ export function AdminEmployeeView() {
                             lastname: addEmployee.lastname,
                             dob: addEmployee.dob,
                             ssn: addEmployee.ssn,
+                            rate: addEmployee.rate,
                             employmentType: addEmployee.employmentType
                         })
                         setData(newCache);
@@ -248,6 +249,14 @@ export function AdminEmployeeView() {
                         value={editEmployee.ssn}
                         onChange={(e) => handleFieldChange("ssn", e.target.value)}
                         {...textFieldProps} />
+                     <TextField
+                        label="Rate*"
+                        type="number"
+                        variant="outlined"
+                        margin="normal"
+                        value={editEmployee.rate}
+                        onChange={(e) => handleFieldChange("rate", e.target.value)}
+                        {...textFieldProps} />
                     <TextField
                         type="date"
                         variant="outlined"
@@ -295,6 +304,7 @@ export function AdminEmployeeView() {
                                 <TableCell align="center">Last Name</TableCell>
                                 <TableCell align="center">Date Of Birth</TableCell>
                                 <TableCell align="center">SSN</TableCell>
+                                <TableCell align="center">Hourly Rate</TableCell>
                                 <TableCell align="center">Employment Type</TableCell>
                                 <TableCell align="center">Actions</TableCell>
                             </TableRow>
@@ -308,6 +318,7 @@ export function AdminEmployeeView() {
                                     <TableCell align="center">{row.lastname.toUpperCase()}</TableCell>
                                     <TableCell align="center">{row.dob}</TableCell>
                                     <TableCell align="center">{row.ssn ? row.ssn : "N/A"}</TableCell>
+                                    <TableCell align="center">{row.rate ? row.rate : "N/A"}</TableCell>
                                     <TableCell align="center">{row.employmentType.toUpperCase()}</TableCell>
                                     <TableCell align="center">
                                         <IconButton onClick={() => { setShowEditDialog(true); setEmployee(row) }} aria-label="edit">

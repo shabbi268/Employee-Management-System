@@ -41,6 +41,7 @@ export function AdminEmployeeNew() {
         firstname: "",
         lastname: "",
         ssn: "",
+        rate: null,
         dob: new Date(),
         employmentType: ""
     });
@@ -56,13 +57,13 @@ export function AdminEmployeeNew() {
 
     const handleDOB = (event) => {
         const date = dateConverter(event.target.value);
-        setEmployee({ firstname: employee.firstname, lastname: employee.lastname, ssn: employee.ssn, dob: date, employmentType: employee.employmentType })
+        setEmployee({ firstname: employee.firstname, lastname: employee.lastname, ssn: employee.ssn, rate: employee.rate, dob: date, employmentType: employee.employmentType })
     }
 
     const onSubmit = async (e) => {
         if (e) e.preventDefault();
         setIsLoading(true);
-        if (employee.firstname == "" || employee.ssn == "" || employee.lastname == "" || employee.dob == "") {
+        if (employee.firstname == "" || employee.rate == null || employee.ssn == "" || employee.lastname == "" || employee.dob == "") {
             toast.error("Employee Details can't be Null");
             // setIsLoading(false);
             return;
@@ -71,12 +72,12 @@ export function AdminEmployeeNew() {
             await axios.post('/employees.json', employee)
                 .then(response => {
                     setIsLoading(false);
-                    setEmployee({ firstname: "", lastname: "", ssn: "", dob: new Date(), employmentType: "" })
+                    setEmployee({ firstname: "", lastname: "", ssn: "", rate: null, dob: new Date(), employmentType: "" })
                     toast.success(`Employee Added Successfully`);
                 })
                 .catch(err => {
                     setIsLoading(false);
-                    setEmployee({ firstname: "", lastname: "", ssn: "", dob: new Date(), employmentType: "" })
+                    setEmployee({ firstname: "", lastname: "", ssn: "", rate: null, dob: new Date(), employmentType: "" })
                 });
         } catch (err) {
             toast.error(
@@ -125,6 +126,14 @@ export function AdminEmployeeNew() {
                         margin="normal"
                         value={employee.ssn}
                         onChange={(e) => handleFieldChange("ssn", e.target.value)}
+                        {...textFieldProps} />
+                    <TextField
+                        label="Hourly Rate*"
+                        type="number"
+                        variant="outlined"
+                        margin="normal"
+                        value={employee.rate}
+                        onChange={(e) => handleFieldChange("rate", e.target.value)}
                         {...textFieldProps} />
                     <FormControl className={classes.formControl}>
                         <InputLabel id="demo-simple-select-label">Employment Type*:</InputLabel>
