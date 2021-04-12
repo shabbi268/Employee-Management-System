@@ -159,7 +159,7 @@ export function AdminEmployeeView() {
 
         const handleDOB = (event) => {
             const editedDate = dateConverter(event.target.value);
-            setEmployee({ id: editEmployee.id, firstname: editEmployee.firstname, lastname: editEmployee.lastname, dob: editedDate, employmentType: editEmployee.employmentType })
+            setEmployee({ id: editEmployee.id, firstname: editEmployee.firstname, lastname: editEmployee.lastname, ssn: editEmployee.ssn, dob: editedDate, employmentType: editEmployee.employmentType })
         }
 
         const handleFieldChange = (key, value) => {
@@ -193,6 +193,7 @@ export function AdminEmployeeView() {
                             firstname: addEmployee.firstname,
                             lastname: addEmployee.lastname,
                             dob: addEmployee.dob,
+                            ssn: addEmployee.ssn,
                             employmentType: addEmployee.employmentType
                         })
                         setData(newCache);
@@ -238,6 +239,14 @@ export function AdminEmployeeView() {
                         margin="normal"
                         value={editEmployee.lastname}
                         onChange={(e) => handleFieldChange("lastname", e.target.value)}
+                        {...textFieldProps} />
+                    <TextField
+                        label="SSN*"
+                        type="text"
+                        variant="outlined"
+                        margin="normal"
+                        value={editEmployee.ssn}
+                        onChange={(e) => handleFieldChange("ssn", e.target.value)}
                         {...textFieldProps} />
                     <TextField
                         type="date"
