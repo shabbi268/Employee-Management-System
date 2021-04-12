@@ -285,6 +285,7 @@ export function AdminEmployeeView() {
                                 <TableCell align="center">First Name</TableCell>
                                 <TableCell align="center">Last Name</TableCell>
                                 <TableCell align="center">Date Of Birth</TableCell>
+                                <TableCell align="center">SSN</TableCell>
                                 <TableCell align="center">Employment Type</TableCell>
                                 <TableCell align="center">Actions</TableCell>
                             </TableRow>
@@ -297,6 +298,7 @@ export function AdminEmployeeView() {
                                     </TableCell>
                                     <TableCell align="center">{row.lastname.toUpperCase()}</TableCell>
                                     <TableCell align="center">{row.dob}</TableCell>
+                                    <TableCell align="center">{row.ssn ? row.ssn : "N/A"}</TableCell>
                                     <TableCell align="center">{row.employmentType.toUpperCase()}</TableCell>
                                     <TableCell align="center">
                                         <IconButton onClick={() => { setShowEditDialog(true); setEmployee(row) }} aria-label="edit">
