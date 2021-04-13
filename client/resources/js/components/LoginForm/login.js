@@ -199,10 +199,11 @@ export function Login() {
 
         const authenticateUser = (username, password, usersList) => {
             const matchedUser = usersList.filter((user) => {
-                if (user.username == username && user.password == password) {
+                if ((user.username == username || user.email == username) && user.password == password) {
                     return user;
                 }
             });
+            console.log(`matchedUser: `, matchedUser);
             return matchedUser;
         }
 
@@ -257,7 +258,7 @@ export function Login() {
                     <div style={{ border: "dashed 2px darkblue", marginTop: "10px" }}>
                         <Typography variant="h4" style={{ marginTop: "10px" }}>Login</Typography>
                         <form onSubmit={onSubmit} id="login-form" style={{ margin: "10px", display: "inline-grid" }} noValidate autoComplete="off">
-                            <TextField label="UserName"
+                            <TextField label="UserName or Email"
                                 variant="outlined"
                                 margin="normal"
                                 value={username}
