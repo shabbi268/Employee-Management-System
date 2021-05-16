@@ -6,7 +6,7 @@
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-This EMS Applications is cloud database powered, mobile compatible ReactJS-powered Application for managing the employee data for small amd medium scale organizations
+This EMS Applications is cloud database powered, mobile compatible ReactJS-powered Application for managing the employee data for small and medium scale organizations
 
 ## Features
 
