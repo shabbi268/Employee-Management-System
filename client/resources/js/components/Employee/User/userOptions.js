@@ -75,7 +75,7 @@ export function UserOptions({ user }) {
                 <div style={{ marginTop: "20px" }}>{scheduleMeeting && renderScheduleMeeting()}</div>
             </div>
             <Button style={{ marginTop: "10px" }} color="primary" variant="contained" size="medium" onClick={() => { window.location.replace("/login") }}>
-                Log Out
+                Sign Out
             </Button>
         </div>
     )
