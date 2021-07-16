@@ -46,7 +46,8 @@
     "sass-loader": "^8.0.2",
     "serve-favicon": "^2.5.0",
     "string-replace-loader": "^2.2.0",
-    "style-loader": "^1.2.1"
+    "style-loader": "^1.2.1",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",

@@ -12,6 +12,7 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import { sendEmail } from "../shared/A-UI/NodeMailer/mailer";
+import { logger } from "../../../../../logger/logger";
 
 const useStyles = makeStyles((theme) =>
     createStyles({
@@ -196,7 +197,8 @@ export function Login() {
     }
 
     const renderLoginForm = () => {
-
+        logger.info("Login Form rendered");
+        console.info("Login Form rendered");
         const authenticateUser = (username, password, usersList) => {
             const matchedUser = usersList.filter((user) => {
                 if ((user.username == username || user.email == username) && user.password == password) {
@@ -230,7 +232,7 @@ export function Login() {
                         setIsLoggedIn(true);
                         setUsername(username)
                         setLoggedInUser(matchedUser[0]);
-
+                        logger.info("ADMIN Logged In")
                     }
                     else if (matchedUser[0].userType == "USER") {
                         setIsUser(true);
