@@ -62,6 +62,14 @@ export function Login() {
         setEmail("");
     }
 
+    const speak = (text) => {
+        const speech = new SpeechSynthesisUtterance(text);
+        speech.volume = 1;
+        speech.rate = 1;
+        speech.pitch = 1;
+        window.speechSynthesis.speak(speech);
+    }
+
     const renderRegisterForm = () => {
 
         const confirmRegister = async (e) => {
@@ -70,7 +78,8 @@ export function Login() {
             if (e) e.preventDefault();
             try {
                 if (password != confirmPassword) {
-                    toast.error("Password didn't match. please try again.")
+                    toast.error("Passwords didn't match. please try again.")
+                    speak("Passwords didn't match. please try again.");
                     setUsername("");
                     setPassword("");
                     setConfirmPassword("");
@@ -225,6 +234,7 @@ export function Login() {
                 if (matchedUser.length == 1) {
                     toast.success("Successfully Authenticated User. Logging In.")
                     if (matchedUser[0].userType == "ADMIN") {
+                        speak("Successfully Authenticated User. Logging In as Admin.");
                         setIsAdmin(true);
                         setIsLoading(false);
                         setIsLoggedIn(true);
@@ -233,6 +243,7 @@ export function Login() {
 
                     }
                     else if (matchedUser[0].userType == "USER") {
+                        speak("Successfully Authenticated User. Logging In as User.");
                         setIsUser(true);
                         setIsLoading(false);
                         setIsLoggedIn(true);
@@ -242,6 +253,7 @@ export function Login() {
                 }
                 else if (matchedUser.length != 1) {
                     toast.error("Authentication Failed. Please enter correct username and password.")
+                    speak("Authentication Failed. Please enter correct username and password.");
                     setIsLoading(false);
                     setIsLoggedIn(false);
                 }
