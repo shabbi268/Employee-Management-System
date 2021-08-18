@@ -1,4 +1,5 @@
 {
+  "homepage": ".",
   "name": "ems",
   "version": "1.0.0",
   "description": "Employee Management Application",
