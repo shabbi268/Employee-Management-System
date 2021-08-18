@@ -74,3 +74,21 @@ npm run webpack:dev
 
 - The database for this application is hosted on amazon cloud firebase and if you want to create and host application on your own database
 - You can create a account in the [Firebase](https://firebase.google.com/) and copy the Database URL and replace the URL in the .env file in the FRONTEND folder.
+
+
+## Docker Setup:
+### Docker Image and Container Way:
+Follow the below instructions if you want to run the application in an docker container
+- Run below command to build the Docker Image:
+    `docker build -t <NAME_AS_YOU_WISH>` .
+- Run below command to run a container instance of the image created above:
+    `docker run -it --rm -v ${PWD}:/app -v /app/node_modules -p 3001:5000 -e CHOKIDAR_USEPOLLING=true <CHOOSE_IMAGE_NAME_ABOVE>`
+- Now the docker image is created and container instance is up and running.
+- Go to the `http://localhost:3001/` and you should see the app running.
+- Make sure you go to above url at `3001` because we proxied the port 3000 to 3001 of docker virtual port.
+
+### Docker-Compose way:
+Follow the below steps to use docker-compose to run the application in one step:
+- Run the below command to build and run the application:
+    `docker-compose up -d --build`
+- The above command takes care of building image, creating and running the container.
