@@ -1,11 +1,12 @@
 {
+  "homepage": ".",
   "name": "ems",
   "version": "1.0.0",
   "description": "Employee Management Application",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "build": "gulp && npm run webpack",
+    "start": "nodemon index.js && npm run webpack -- --watch --display-error-details",
+    "build": "react-scripts build",
     "dev": "npm run build && nodemon --watch ./src/libs --watch ./src/routes --inspect=4667 ./index.js",
     "webpack": "webpack --config webpack.config.js",
     "webpack:dev": "npm run webpack -- --watch --display-error-details"
@@ -61,7 +62,6 @@
     "babel-loader": "^8.1.0",
     "concurrently": "^5.2.0",
     "css-loader": "^3.4.2",
-    "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-react-hooks": "^4.0.4",
     "file-loader": "^5.0.2",

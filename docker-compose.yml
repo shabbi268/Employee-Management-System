@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  emsapp:
+    container_name: emsapp
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - 3001:5000
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    stdin_open: true
